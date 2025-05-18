@@ -11,6 +11,6 @@ const parseEnv = () => {
     .join('; ')
 
   console.log(filteredEnv)
-};
+}
 
-parseEnv();
+parseEnv()

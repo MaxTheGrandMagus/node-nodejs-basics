@@ -4,23 +4,23 @@
   Streams API
 */
 
-import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
-import { createHash } from 'node:crypto';
-import { createReadStream } from 'node:fs';
-import { pipeline } from 'node:stream/promises';
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
+import { createHash } from 'node:crypto'
+import { createReadStream } from 'node:fs'
+import { pipeline } from 'node:stream/promises'
 
 const calculateHash = async () => {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const fileToCalculateHashFor = `${__dirname}/files/fileToCalculateHashFor.txt`;
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = dirname(__filename)
+  const fileToCalculateHashFor = `${__dirname}/files/fileToCalculateHashFor.txt`
 
-  const hash = createHash('sha256');
-  const inputStream = createReadStream(fileToCalculateHashFor);
+  const hash = createHash('sha256')
+  const inputStream = createReadStream(fileToCalculateHashFor)
 
-  await pipeline(inputStream, hash);
+  await pipeline(inputStream, hash)
 
-  console.log(hash.digest('hex'));
-};
+  console.log(hash.digest('hex'))
+}
 
-await calculateHash();
+await calculateHash()
